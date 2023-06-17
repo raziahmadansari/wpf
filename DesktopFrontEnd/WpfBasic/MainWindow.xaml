@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfBasic"
         mc:Ignorable="d"
+        Closing="UserConfirmationOnWindowClose"
+        WindowStartupLocation="CenterScreen"
         Title="Names" Height="450" Width="800">
     <Grid Margin="5">
         <Grid.RowDefinitions>
@@ -18,7 +20,12 @@
         <Label Content="Names"></Label>
         <ListBox Grid.Row="1" x:Name="listNames"></ListBox>
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="5,0,0,0">
-            <TextBox x:Name="textName"></TextBox>
+            <Menu>
+                <MenuItem Header="_File">
+                    <MenuItem Header="E_xit" Click="fileExitMenuItem_Click"></MenuItem>
+                </MenuItem>
+            </Menu>
+            <TextBox x:Name="textName" TextChanged="textChanged"></TextBox>
             <Button x:Name="ButtonAdd" Content="Add Name" Margin="0, 5, 0, 0" Click="Add_Name"></Button>
         </StackPanel>
     </Grid>
